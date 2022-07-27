@@ -8,22 +8,20 @@
 <script type="text/javascript">
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var notEmail = 'semEmail';
     var acessChat = url.searchParams.get("acessChat");
 
-    if(acessChat !== null){
-        localStorage.setItem('chatbot-info-student', acessChat.replaceAll('@', '7a5r9o3b2a0').replaceAll('.', '5p6o3n6t2o'));
-    }else if(acessChat === null){
-        localStorage.setItem('chatbot-info-student', notEmail);
+    if(acessChat != null){
+        localStorage.setItem('chatbot-info-student', acessChat);
+    }else {
+        localStorage.setItem('chatbot-info-student', "withoutAcessChat");
     }
         
 
     var paramChat;
-    var paramChatConcat;
     paramChat = localStorage.getItem('chatbot-info-student');
     paramChatConcat = paramChat;
     let cronchatToken = '2036186678:AAG5vrA-jeUda5wmpwQOmjJt9sbFPZUmpi8';
-    let hostURL = 'https://cronchatpuchomolog.cronapp.io/get-chat?token=';
+    let hostURL = 'https://cronchatcronapp.cronapp.io/get-chat?token=';
     let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChatConcat}`;
     let scriptHTML = document.createElement("script");
     scriptHTML.src = chatbotURL;
